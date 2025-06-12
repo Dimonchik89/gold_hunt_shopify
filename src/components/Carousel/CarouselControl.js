@@ -31,12 +31,14 @@ const CarouselControl = ({ handleChangeSwiperOptions }) => {
         objectKey={'navigation'}
         title="Navigation"
       />
-      <CarouselButtonGroup
-        data={paddingButtons}
-        handleClick={handleChangeSwiperOptions}
-        objectKey={'padding'}
-        title="Padding"
-      />
+      <div className="hidden md:block">
+        <CarouselButtonGroup
+          data={paddingButtons}
+          handleClick={handleChangeSwiperOptions}
+          objectKey={'padding'}
+          title="Padding"
+        />
+      </div>
     </div>
   );
 };
