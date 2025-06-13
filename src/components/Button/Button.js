@@ -2,7 +2,7 @@ import React from 'react';
 
 const Button = ({ text, value, objectKey, handleClick }) => {
   return (
-    <button onClick={() => handleClick(objectKey, value)}>
+    <button className="button" onClick={() => handleClick(objectKey, value)}>
       <span className="circle1"></span>
       <span className="circle2"></span>
       <span className="circle3"></span>

@@ -3,9 +3,12 @@ import { useState } from 'react';
 import Image from 'next/image';
 import React from 'react';
 import FormProductCard from '../Form/FormProductCard';
+import AccordionCustom from '../Accordion/Accordion';
 
 const ProductCard = ({ product }) => {
   const [selectedColor, setSelectedColor] = useState(product.options[0].values[0]);
+
+  const accordionContent = [product?.careGuide, product?.subtitle];
 
   const selectedVariant = product.variants.find((item) => item.title === selectedColor);
 
@@ -15,7 +18,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="group block">
-      <div className="flex flex-col md:flex-row gap-10">
+      <div className="flex flex-col md:flex-row gap-5">
         <div className="flex-[0_0_60%]">
           <Image
             priority
@@ -27,7 +30,7 @@ const ProductCard = ({ product }) => {
           />
         </div>
 
-        <div className="mt-1.5 flex flex-col gap-10">
+        <div className="mt-1.5 flex flex-col gap-5">
           <p className="text-2xl text-gray-500">{product.title}</p>
 
           <div className="mt-1.5 flex gap-1">
@@ -45,6 +48,7 @@ const ProductCard = ({ product }) => {
               {selectedVariant.price.amount} {product.variants[0].price.currencyCode}
             </p>
           </div>
+          <AccordionCustom accordionContent={accordionContent} />
         </div>
       </div>
     </div>

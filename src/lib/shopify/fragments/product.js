@@ -9,6 +9,19 @@ export const productFragment = `
     title
     description
     descriptionHtml
+	subtitle: metafield(namespace: "descriptors", key: "subtitle") {
+		namespace
+          key
+      value
+      type
+    }
+
+    careGuide: metafield(namespace: "descriptors", key: "care_guide") {
+		namespace
+          key
+      value
+      type
+    }
     options {
       id
       name
