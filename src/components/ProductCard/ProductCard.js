@@ -40,7 +40,7 @@ const ProductCard = ({ product }) => {
             />
           </div>
 
-          <div className="mt-3 flex flex-col gap-5 justify-center text-xl flex-auto">
+          <div className="mt-3 flex flex-col flex-auto gap-5 justify-center text-xl flex-auto">
             <h3 className="text-gray-900">{product.description}</h3>
 
             <p className="text-gray-900">
@@ -48,7 +48,11 @@ const ProductCard = ({ product }) => {
               {selectedVariant.price.amount} {product.variants[0].price.currencyCode}
             </p>
           </div>
-          <AccordionCustom accordionContent={accordionContent} />
+          <div className="p-4 bg-gray-200 rounded-lg">
+            {accordionContent.map(({ key, value }) => (
+              <AccordionCustom key={`${key}-${value}`} title={key} value={value} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
